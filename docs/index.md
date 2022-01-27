@@ -1,37 +1,92 @@
-## Welcome to GitHub Pages
+## Edenred acceptors list
 
-You can use the [editor on GitHub](https://github.com/Bacce/edenredAcceptors/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This project started because I wasn't sure what are the shops I can use my edenred vouchers.
+The edenred website is great if I want to pay at a shop and find out if they accepts my vouchers, but not really good to decide where to spend the money.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Here is the list of the shops you search for most likely
 
-### Markdown
+### General store/food:
+TESCO
+COOP
+CBA
+REÁL
+ALDI
+AUCHAN
+PENNY MARKET
+PRÍMA
+SPAR
+INTERSPAR
+RONI ABC
+NORBI UPDATE
+GOODS MARKET
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Fast food:
+FORNETTI
+BURGER KING
+Mcdonald
+DON PEPE
+PIZZAFORTE
 
-```markdown
-Syntax highlighted code block
+### Cosmetics:
+DROGERIE MARKT
+ROSSMANN
+YVES ROCHER
+DOUGLAS
 
-# Header 1
-## Header 2
-### Header 3
+### Shoes:
+DEICHMANN
+CCC
+SALAMANDER CIPŐBOLT
+SCHOLL
 
-- Bulleted
-- List
+### Fashion:
+DECATHLON
+HERVIS
+HEAVY TOOLS
+PLAYERSROOM
+TAKKO FASHION
+TRIUMPH
+ORSAY
+NEW YORKER
+DOCKYARD
+RESERVED
+PEPCO
+KIK
 
-1. Numbered
-2. List
+### Optics:
+OFOTÉRT
+OPTIC WORLD
+VISION EXPRESS
+IRISZ OPTIKA
 
-**Bold** and _Italic_ and `Code` text
+### Electronics:
+EURONICS
+MM
+Extreme Digital
 
-[Link](url) and ![Image](src)
-```
+### Books:
+LIBRI
+LÍRA
+MÓRA KÖNYVÁRUHÁZ
+ANIMA KÖNYVESBOLT
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### Travel:
+NECKERMANN
 
-### Jekyll Themes
+### Office supply:
+OFFICE DEPOT
+PIREX PAPÍR
+PÁTRIA PAPÍR
+MILL-R
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Bacce/edenredAcceptors/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Cinema:
+CINEMA CITY
+CORVIN MOZI
 
-### Support or Contact
+### DIY:
+PRAKTIKER
+HOBBYMUVÉSZ
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Other:
+MATRAC KIRÁLY
+SCITEC NUTRITION
