@@ -1,9 +1,9 @@
 ## Edenred acceptors list
 
 This project started because I wasn't sure what are the shops I can use my edenred vouchers.
-The edenred website is great if I want to pay at a shop and find out if they accepts my vouchers, but not really good to decide where to spend the money.
+The edenred website is great if you are about to pay at a shop and want to find out if they accepts your vouchers, but not really good to decide where to spend them.
 
-Here is the list of the shops you search for most likely
+Here is the (not complete) list of the shops you are most likely looking for.
 
 ### General Store / food
 - ALDI
