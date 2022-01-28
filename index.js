@@ -10,13 +10,12 @@ import fs from 'fs';
 
 const getAllIds = () => {
     const url = "https://elfogadohely.edenred.hu/Home/FindBy";
-    // radius is 2 max by default, you can adjust it further to get more or less results, my goal was to get all the possible shops
-    const requestData = {"latitude":"47.5049309","longitude":"19.0579076","radius":"100","radiusExtension":"0","filters":[{"name":"name","value":""},{"name":"ddl_product","value":"5"}],"clientContext":{"CountryID":"30","ProductID":"5","LangueID":""},"requestId":"a4e232cd-91da-4b4b-b74a-419202cf5162"};
+    const requestData = {"filters":[{"name":"ddl_product","value":"5"},{"name":"Name","value":""}],"clientContext":{"CountryID":"30","ProductID":"5","LangueID":""},"requestId":"c2ad65a8-c54a-4079-9511-076957882439"};
     const config = {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
-        'Cookie': "_ga=GA1.2.620796770.1637062287; _gac_UA-17546308-1=1.1639740705.CjwKCAiAh_GNBhAHEiwAjOh3ZJSQp4F60eCPhU0e7YgDWEBiWLIzM3V_E02iXOH4Ut4jkhey-O-kPxoC-c4QAvD_BwE; Emaps-UserId=f0151d5c-93b2-4d3d-ae92-6212d34ab93a; ErMapsSession=CfDJ8Mi1o3b0cA1MgmWpqrAqyTevS%2FGP%2FiDFtwkLVd7saCrpByLqFrCRxokTg9xMR8Epd%2B%2BRSic7u8RXJYmn110JxVDnO4MbUGqLyOTvjWywOeVS0TtLhn1LCMo4ZCyblXdcORDoULTzmnxVZsLxDYcERByK%2BqA%2FdoE8nz4dmKupTOrE; _gid=GA1.2.598189764.1643202677; _dc_gtm_UA-17546308-1=1; TS010bb89a=015b3bbaa39a1f07b6cf3d63f44cabe2bf9c391e3dcdb1333c00b943318ee5fbfe99f888cd6b1fc38212650739ae005219178d57b4; _gat_countryTracker=1; _gat=1",
+        'Cookie': "_ga=GA1.2.737085234.1643382296; _gid=GA1.2.152033049.1643382296; Emaps-UserId=38453422-d527-4330-853d-7e610fea9447; ErMapsSession=CfDJ8Mi1o3b0cA1MgmWpqrAqyTdD6UgsqPG0nxGtrEyKiJ4DSdncGx9M+1bjKrFkkKnQT+W5YV7wt9OlhOmwTQNFalrK4RqUBJUfB91bWmKj4MLjRVdYpk+Y0azrPiyDzEQdW14hnC5PEAVsIaFHUWznD839THMDtz+fOW+D836rM+aH; TS010bb89a=015b3bbaa3d206a7144737d18de9c28a38ce993ea9fc68ec00fc865e333f14f3b4391488a1d8a092b97a6241c67c918999f9877e05; _gat_countryTracker=1; _gat=1",
         },
         body: JSON.stringify(requestData),
     };
@@ -26,9 +25,8 @@ const getAllIds = () => {
         .then(data => {
             fs.writeFile("scrape_ids.json", JSON.stringify(data), ()=>{console.log("done")});
 
-            // DIGEST DATA
+            // remove not needed infos
             const filtered = [];
-            data =JSON.parse(data);
             data.Value.forEach((shop)=>{filtered.push(shop.I)});
             fs.writeFile("scrape_ids_pure.json", JSON.stringify(filtered), ()=>{console.log("done")});
         });
@@ -45,7 +43,7 @@ const getAllDetailsFromIds = () => {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
-            'Cookie': "_ga=GA1.2.620796770.1637062287; _gac_UA-17546308-1=1.1639740705.CjwKCAiAh_GNBhAHEiwAjOh3ZJSQp4F60eCPhU0e7YgDWEBiWLIzM3V_E02iXOH4Ut4jkhey-O-kPxoC-c4QAvD_BwE; Emaps-UserId=f0151d5c-93b2-4d3d-ae92-6212d34ab93a; ErMapsSession=CfDJ8Mi1o3b0cA1MgmWpqrAqyTevS%2FGP%2FiDFtwkLVd7saCrpByLqFrCRxokTg9xMR8Epd%2B%2BRSic7u8RXJYmn110JxVDnO4MbUGqLyOTvjWywOeVS0TtLhn1LCMo4ZCyblXdcORDoULTzmnxVZsLxDYcERByK%2BqA%2FdoE8nz4dmKupTOrE; _gid=GA1.2.598189764.1643202677; _dc_gtm_UA-17546308-1=1; TS010bb89a=015b3bbaa39a1f07b6cf3d63f44cabe2bf9c391e3dcdb1333c00b943318ee5fbfe99f888cd6b1fc38212650739ae005219178d57b4; _gat_countryTracker=1; _gat=1",
+            'Cookie': "_ga=GA1.2.737085234.1643382296; _gid=GA1.2.152033049.1643382296; Emaps-UserId=38453422-d527-4330-853d-7e610fea9447; ErMapsSession=CfDJ8Mi1o3b0cA1MgmWpqrAqyTdD6UgsqPG0nxGtrEyKiJ4DSdncGx9M+1bjKrFkkKnQT+W5YV7wt9OlhOmwTQNFalrK4RqUBJUfB91bWmKj4MLjRVdYpk+Y0azrPiyDzEQdW14hnC5PEAVsIaFHUWznD839THMDtz+fOW+D836rM+aH; TS010bb89a=015b3bbaa3d206a7144737d18de9c28a38ce993ea9fc68ec00fc865e333f14f3b4391488a1d8a092b97a6241c67c918999f9877e05; _gat_countryTracker=1; _gat=1",
             },
             body: JSON.stringify(requestData),
         };
@@ -69,8 +67,8 @@ const getShopNames = () => {
 
         data = JSON.parse(data);
         data.forEach((place)=>{
-            uniqueShops.add(place.Name);
-            allShops.push(place.Name);
+            uniqueShops.add(place.Name.toUpperCase().trim());
+            allShops.push(place.Name.toUpperCase().trim());
         });
 
         fs.writeFile("scrape_unique_shops.json", JSON.stringify([...uniqueShops]), ()=>{console.log("done")});
@@ -80,8 +78,8 @@ const getShopNames = () => {
 
 const getShopWords = () => {
     fs.readFile('./scrape_details.json', 'utf8' , (err, data) => {
-        //let uniqueNames = new Set();
-        //let allWords = [];
+        let uniqueNames = new Set();
+        let allWords = [];
         let wordCounts = {};
         let wordCountsArray = [];
 
@@ -92,8 +90,9 @@ const getShopWords = () => {
 
         data = JSON.parse(data);
         data.forEach((place)=>{
-            place.Name = place.Name.trim();
             let placeWords = place.Name.split(/[ -\.,/]+/);
+            //Remove empty strings from the array
+            placeWords = placeWords.filter(v=>v!='');
 
             // add every variation of two following word options of the array, eg. [0,1,2,3] = 01,12,23
             let doubleWords = [];
@@ -106,8 +105,8 @@ const getShopWords = () => {
             placeWords=[...placeWords, ...doubleWords];
             
             placeWords.forEach((word)=>{
-                //allWords.push(word);
-                //uniqueNames.add(word);
+                allWords.push(word);
+                uniqueNames.add(word);
                 
                 if (wordCounts.hasOwnProperty(word)) {
                     wordCounts[word]++;
@@ -118,15 +117,17 @@ const getShopWords = () => {
             });
         });
 
+        //convert object keys to properties
         Object.keys(wordCounts).forEach((word)=>{
             wordCountsArray.push({word: word, count: wordCounts[word]});
         });
 
+        //descencing order
         wordCountsArray.sort((a, b) => b.count - a.count);
 
-        //fs.writeFile("scrape_unique_words.json", JSON.stringify([...uniqueNames]), ()=>{console.log("done")});
-        //fs.writeFile("scrape_all_words.json", JSON.stringify(allWords), ()=>{console.log("done")});
-        //fs.writeFile("scrape_wordcounts.json", JSON.stringify(wordCounts), ()=>{console.log("done")});
+        fs.writeFile("scrape_unique_words.json", JSON.stringify([...uniqueNames]), ()=>{console.log("done")});
+        fs.writeFile("scrape_all_words.json", JSON.stringify(allWords), ()=>{console.log("done")});
+        fs.writeFile("scrape_wordcounts.json", JSON.stringify(wordCounts), ()=>{console.log("done")});
         fs.writeFile("scrape_wordcounts_array_v2.json", JSON.stringify(wordCountsArray), ()=>{console.log("done")});
     });
 }
